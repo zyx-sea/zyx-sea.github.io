@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>构建之法-第二章 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="软件测试," />
+  
+
+  <meta name="description" content="第二章    个人技术与流程单元测试怎样才算一个好的单元测试？
+单元测试应该准确、快速地保证程序基本模块的正确性。验证单元测试好坏的一系列标准：   单元测试应该在最基本的功能/参数上验证程序的正确性。   单元测试要测试API中的每一个方法及每一个参数。
+单元测试必须由最熟悉代码的人（程序的作者）来写。
+
+编写单元测试？
+最好是在设计的时候就写好单元测试，这样单元测试就能体现API的语义，如果没">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建之法-第二章">
+<meta property="og:url" content="http://zyx-sea.github.io/2017/04/08/构建之法-第二章/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="第二章    个人技术与流程单元测试怎样才算一个好的单元测试？
+单元测试应该准确、快速地保证程序基本模块的正确性。验证单元测试好坏的一系列标准：   单元测试应该在最基本的功能/参数上验证程序的正确性。   单元测试要测试API中的每一个方法及每一个参数。
+单元测试必须由最熟悉代码的人（程序的作者）来写。
+
+编写单元测试？
+最好是在设计的时候就写好单元测试，这样单元测试就能体现API的语义，如果没">
+<meta property="og:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/psp2.1.png">
+<meta property="og:updated_time" content="2017-04-10T12:21:35.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构建之法-第二章">
+<meta name="twitter:description" content="第二章    个人技术与流程单元测试怎样才算一个好的单元测试？
+单元测试应该准确、快速地保证程序基本模块的正确性。验证单元测试好坏的一系列标准：   单元测试应该在最基本的功能/参数上验证程序的正确性。   单元测试要测试API中的每一个方法及每一个参数。
+单元测试必须由最熟悉代码的人（程序的作者）来写。
+
+编写单元测试？
+最好是在设计的时候就写好单元测试，这样单元测试就能体现API的语义，如果没">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/psp2.1.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-个人技术与流程"><span class="toc-text">第二章    个人技术与流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单元测试"><span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#怎样才算一个好的单元测试？"><span class="toc-text">怎样才算一个好的单元测试？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写单元测试？"><span class="toc-text">编写单元测试？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回归测试"><span class="toc-text">回归测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目的是："><span class="toc-text">目的是：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他-1"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#个人开发流程"><span class="toc-text">个人开发流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PSP"><span class="toc-text">PSP</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-构建之法-第二章" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">构建之法-第二章</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.04.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/构建之法/">构建之法</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2017/04/08/构建之法-第二章/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="第二章-个人技术与流程"><a href="#第二章-个人技术与流程" class="headerlink" title="第二章    个人技术与流程"></a>第二章    个人技术与流程</h2><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="怎样才算一个好的单元测试？"><a href="#怎样才算一个好的单元测试？" class="headerlink" title="怎样才算一个好的单元测试？"></a>怎样才算一个好的单元测试？</h3><blockquote>
+<p>单元测试应该准确、快速地保证程序基本模块的正确性。<br>验证单元测试好坏的一系列标准：<br>   单元测试应该在最基本的功能/参数上验证程序的正确性。<br>   单元测试要测试API中的每一个方法及每一个参数。</p>
+<p>单元测试必须由最熟悉代码的人（程序的作者）来写。</p>
+</blockquote>
+<h3 id="编写单元测试？"><a href="#编写单元测试？" class="headerlink" title="编写单元测试？"></a>编写单元测试？</h3><blockquote>
+<p><strong>最好是在设计的时候就写好单元测试</strong>，这样单元测试就能体现API的语义，如果没有单元测试，语义的准确性就不能得到保障，以后会产生歧义。单元测试过后，机器状态保持不变。这样就可以不断地运行单元测试，如果单元测试创建了临时的文件或目录，应该在Teardown阶段删掉。如果单元测试在数据库中创建或修改了记录，那么也许要删除或恢复这些记录，或者每一个单元测试使用一个新的数据库，这样可以保证单元测试不受以前单元测试实例的干扰。</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
+<p>单元测试应该集成到自动测试的框架中。另一个重要的措施是要把单元测试自动化，这样每个人都能随时、随地运行单元测试。<br>团队一般是在每日构建之后运行单元测试的，这样单元测试的错误就能及时被发现并得到修改。<br>单元测试必须和产品代码一起保存和维护。单元测试必须和代码一起进行版本维护。</p>
+</blockquote>
+<h2 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h2><h3 id="目的是："><a href="#目的是：" class="headerlink" title="目的是："></a>目的是：</h3><blockquote>
+<ol>
+<li>验证新的代码的确改正了缺陷</li>
+<li>同时要验证新的代码有没有破坏模块的现有功能，有没有Regression</li>
+</ol>
+</blockquote>
+<h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><blockquote>
+<p><strong>回归测试最好要自动化</strong>，因为这样就可以对于每一个构建快速运行所有回归测试，以保证尽早发现问题。单元测试是回归测试的基础。在专注于模块基本功能的单元测试之外，还有功能测试—从用户的角度检查功能完成得怎么样。</p>
+</blockquote>
+<h2 id="个人开发流程"><a href="#个人开发流程" class="headerlink" title="个人开发流程"></a>个人开发流程</h2><h3 id="PSP"><a href="#PSP" class="headerlink" title="PSP"></a>PSP</h3><blockquote>
+<p>卡内基梅隆大学（CMU）的能力成熟度模型（CMM和CMMI），是用来衡量一个团队能力的一套模型。CMU的专家们针对软件工程师也有一套模型，叫Personal Software Process（PSP）。（最新PSP2.1）</p>
+<p><img src="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/psp2.1.png" alt="img"></p>
+</blockquote>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/04/08/构建之法-第一章/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/04/08/构建之法-第五章/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2017/04/08/构建之法-第二章/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
