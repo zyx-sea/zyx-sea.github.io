@@ -29,7 +29,7 @@
 
 注入Bean的注解：
 @Aautowired:Spring提供的注解@Inject : JSR-330提供的注解@Resource : JSR-25">
-<meta property="og:updated_time" content="2017-04-27T10:56:13.298Z">
+<meta property="og:updated_time" content="2017-05-02T06:11:36.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring注解">
 <meta name="twitter:description" content="Spring注解声明Bean的注解：
@@ -195,7 +195,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring注解"><span class="toc-text">Spring注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#声明Bean的注解："><span class="toc-text">声明Bean的注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入Bean的注解："><span class="toc-text">注入Bean的注解：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring注解"><span class="toc-text">Spring注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#声明Bean的注解："><span class="toc-text">声明Bean的注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入Bean的注解："><span class="toc-text">注入Bean的注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件的注解："><span class="toc-text">配置文件的注解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP切面编程注解"><span class="toc-text">AOP切面编程注解:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC-常用注解"><span class="toc-text">SpringMVC 常用注解:</span></a></li></ol></li></ol>
   </div>
 
 
@@ -254,16 +254,13 @@
 <h3 id="注入Bean的注解："><a href="#注入Bean的注解：" class="headerlink" title="注入Bean的注解："></a>注入Bean的注解：</h3><blockquote>
 <p>@Aautowired:Spring提供的注解<br>@Inject : JSR-330提供的注解<br>@Resource : JSR-250提供的注解<br>@Primary 注入时优先使用此注解下的实现类，对应org.springframework.beans.factory.NoUniqueBeanDefinitionException异常</p>
 </blockquote>
-<p>###配置文件的注解：</p>
-<blockquote>
+<h3 id="配置文件的注解："><a href="#配置文件的注解：" class="headerlink" title="配置文件的注解："></a>配置文件的注解：</h3><blockquote>
 <p>@Configuration : 声明当前类是个配置类,相当于一个Spring配置的xml文件.<br>@ComponentScan (cn.test.demo): 自动扫描包名下所有使用 @Component @Service @Repository @Controller 的类,并注册为Bean<br>@WiselyConfiguration : 组合注解 可以替代 @Configuration和@ComponentScan<br>@Bean : 注解在方法上,声明当前方法的返回值为一个Bean.</p>
 </blockquote>
-<p>###AOP切面编程注解:</p>
-<blockquote>
+<h3 id="AOP切面编程注解"><a href="#AOP切面编程注解" class="headerlink" title="AOP切面编程注解:"></a>AOP切面编程注解:</h3><blockquote>
 <p>@Aspect : 声明这是一个切面<br>@After @Before. @Around 定义切面,可以直接将拦截规则(切入点 PointCut)作为参数<br>@PointCut : 专门定义拦截规则 然后在 @After @Before. @Around 中调用<br>@Transcational : 事务处理<br>@Cacheable : 数据缓存<br>@EnableAaspectJAutoProxy : 开启Spring 对 这个切面(Aspect )的支持</p>
 </blockquote>
-<p>###SpringMVC 常用注解:</p>
-<blockquote>
+<h3 id="SpringMVC-常用注解"><a href="#SpringMVC-常用注解" class="headerlink" title="SpringMVC 常用注解:"></a>SpringMVC 常用注解:</h3><blockquote>
 <p>@Controller : 注解在类上 声明这个类是springmvc里的Controller,将其声明为一个spring的Bean.<br>@RequestMapping :可以注解在类上和方法上,映射WEB请求(访问路径和参数)<br>@ResponseBody : 支持将返回值放入response体内,而不是返回一个页面(返回的是一个组数据)<br>@RequestBody : 允许request的参数在request体中,而不是直接连接在地址后面,次注解放置在参数前<br>@PathVariable : 用来接收路径参数 如/test/001,001为参数,次注解放置在参数前<br>@RestController : @Controller + @ResponseBody 组合注解<br>@ControllerAdvice : 通过@ControllerAdvice可以将对已控制器的全局配置放置在同一个位置<br>@ExceptionHandler : 用于全局处理控制器的异常<br>@ExceptionHandier(value=Exception.class) –&gt;通过value属性可过滤拦截器条件,拦截所有的异常<br>@InitBinder : 用来设置WebDataBinder , WebDataBinder用来自动绑定前台请求参数到Model中.<br>@RunWith : 运行器<br>@RunWith(JUnit4.class)就是指用JUnit4来运行<br>@RunWith(SpringJUnit4ClassRunner.class),让测试运行于Spring测试环境<br>@RunWith(Suite.class)的话就是一套测试集合，<br>@WebAppConfiguration(“src/main/resources”) : 注解在类上,用来声明加载的ApplicationContex 是一个WebApplicationContext ,它的属性指定的是Web资源的位置,默认为 src/main/webapp ,自定义修改为 resource<br>@Before : 在 xxx 前初始化</p>
 </blockquote>
 
