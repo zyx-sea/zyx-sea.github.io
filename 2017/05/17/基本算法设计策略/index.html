@@ -7,42 +7,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>github回滚 | Zyx-sea Blog</title>
+  <title>基本算法设计策略 | Zyx-sea Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="github," />
+    <meta name="keywords" content="算法," />
   
 
-  <meta name="description" content="github回滚关键时刻还是命令快速、管用
-在命令行使用git，
-在工作区目录下输入
-git reflog
-可以查询出每个历史版本的commit，每个commit都有对应的ID，确认好要退回的ID后输入：
-git reset –hard  ID
-便可退回相应的历史版本">
+  <meta name="description" content="基本算法设计策略贪心法
+求解问题最优解，将问题分解为若干步，每一步都取当前最优解，即局部最优解。例子：N人过桥问题
+
+####分治法
+
+求解问题唯一解，将问题分解为小规模的子问题，子问题之间相互独立。例子：汉诺塔
+
+回溯法
+求解问题最优解或唯一解。就是深度优先搜索，常用递归实现。约数条件：有不可行解时，判断当前选择是否符合可行解。限界条件：在找最优解时，判断当前选择是否符合最优解。例子：连通图着色">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github回滚">
-<meta property="og:url" content="http://zyx-sea.github.io/2017/05/17/github回滚/index.html">
+<meta property="og:title" content="基本算法设计策略">
+<meta property="og:url" content="http://zyx-sea.github.io/2017/05/17/基本算法设计策略/index.html">
 <meta property="og:site_name" content="Zyx-sea Blog">
-<meta property="og:description" content="github回滚关键时刻还是命令快速、管用
-在命令行使用git，
-在工作区目录下输入
-git reflog
-可以查询出每个历史版本的commit，每个commit都有对应的ID，确认好要退回的ID后输入：
-git reset –hard  ID
-便可退回相应的历史版本">
-<meta property="og:updated_time" content="2017-05-17T12:57:50.045Z">
+<meta property="og:description" content="基本算法设计策略贪心法
+求解问题最优解，将问题分解为若干步，每一步都取当前最优解，即局部最优解。例子：N人过桥问题
+
+####分治法
+
+求解问题唯一解，将问题分解为小规模的子问题，子问题之间相互独立。例子：汉诺塔
+
+回溯法
+求解问题最优解或唯一解。就是深度优先搜索，常用递归实现。约数条件：有不可行解时，判断当前选择是否符合可行解。限界条件：在找最优解时，判断当前选择是否符合最优解。例子：连通图着色">
+<meta property="og:updated_time" content="2017-05-17T13:37:59.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github回滚">
-<meta name="twitter:description" content="github回滚关键时刻还是命令快速、管用
-在命令行使用git，
-在工作区目录下输入
-git reflog
-可以查询出每个历史版本的commit，每个commit都有对应的ID，确认好要退回的ID后输入：
-git reset –hard  ID
-便可退回相应的历史版本">
+<meta name="twitter:title" content="基本算法设计策略">
+<meta name="twitter:description" content="基本算法设计策略贪心法
+求解问题最优解，将问题分解为若干步，每一步都取当前最优解，即局部最优解。例子：N人过桥问题
+
+####分治法
+
+求解问题唯一解，将问题分解为小规模的子问题，子问题之间相互独立。例子：汉诺塔
+
+回溯法
+求解问题最优解或唯一解。就是深度优先搜索，常用递归实现。约数条件：有不可行解时，判断当前选择是否符合可行解。限界条件：在找最优解时，判断当前选择是否符合最优解。例子：连通图着色">
 
   
 
@@ -201,15 +207,15 @@ git reset –hard  ID
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#github回滚"><span class="toc-text">github回滚</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键时刻还是命令快速、管用"><span class="toc-text">关键时刻还是命令快速、管用</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本算法设计策略"><span class="toc-text">基本算法设计策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#贪心法"><span class="toc-text">贪心法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回溯法"><span class="toc-text">回溯法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支限界法"><span class="toc-text">分支限界法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机化算法"><span class="toc-text">随机化算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-text">动态规划</span></a></li></ol></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-github回滚" class="article article-type-post" itemprop="blogPost">
+   <article id="post-基本算法设计策略" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">github回滚</h1>
+    <h1 class="post-title">基本算法设计策略</h1>
 
     <div class="article-meta">
       <span>
@@ -227,7 +233,7 @@ git reset –hard  ID
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/算法设计/">算法设计</a>
   </span>
 
 
@@ -235,7 +241,7 @@ git reset –hard  ID
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://zyx-sea.github.io/2017/05/17/github回滚/#disqus_thread"></a>
+          <a href="https://zyx-sea.github.io/2017/05/17/基本算法设计策略/#disqus_thread"></a>
         </span>
       
 
@@ -254,13 +260,22 @@ git reset –hard  ID
 
   <div class="article-content">
     
-      <h2 id="github回滚"><a href="#github回滚" class="headerlink" title="github回滚"></a>github回滚</h2><h3 id="关键时刻还是命令快速、管用"><a href="#关键时刻还是命令快速、管用" class="headerlink" title="关键时刻还是命令快速、管用"></a>关键时刻还是命令快速、管用</h3><blockquote>
-<p>在命令行使用git，</p>
-<p>在工作区目录下输入</p>
-<p>git reflog</p>
-<p>可以查询出每个历史版本的commit，每个commit都有对应的ID，确认好要退回的ID后输入：</p>
-<p>git reset –hard  ID</p>
-<p>便可退回相应的历史版本</p>
+      <h2 id="基本算法设计策略"><a href="#基本算法设计策略" class="headerlink" title="基本算法设计策略"></a>基本算法设计策略</h2><h3 id="贪心法"><a href="#贪心法" class="headerlink" title="贪心法"></a>贪心法</h3><blockquote>
+<p>求解问题最优解，将问题分解为若干步，每一步都取当前最优解，即局部最优解。<br>例子：N人过桥问题</p>
+</blockquote>
+<p>####分治法</p>
+<blockquote>
+<p>求解问题唯一解，将问题分解为小规模的子问题，子问题之间相互独立。<br>例子：汉诺塔</p>
+</blockquote>
+<h3 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h3><blockquote>
+<p>求解问题最优解或唯一解。<br>就是深度优先搜索，常用递归实现。<br>约数条件：有不可行解时，判断当前选择是否符合可行解。<br>限界条件：在找最优解时，判断当前选择是否符合最优解。<br>例子：连通图着色问题。</p>
+</blockquote>
+<h3 id="分支限界法"><a href="#分支限界法" class="headerlink" title="分支限界法"></a>分支限界法</h3><p>求解问题最优解或唯一解。<br>活结点。<br>例子：集装箱分配问题</p>
+<h3 id="随机化算法"><a href="#随机化算法" class="headerlink" title="随机化算法"></a>随机化算法</h3><blockquote>
+<p>随机化算法分类：<br>(1)数值随机算法<br>   用于数值问题的求解，得到近似解。<br>(2)蒙特卡洛算法<br>   计算数学中的一种计算方法，用于求问题的准确解，得到正确解的概率以来与时间。<br>(3)拉斯维加斯算法<br>   与蒙特卡洛算法相似，但是绝不返回错误的解。<br>(4)舍伍德算法<br>   在确定性算法中加入随机性来降低最坏情况出现的概率。<br>随机化算法分类：<br>   (1)线性同余法<br>   (2)平方取中法<br>   (3)乘同余法<br>   (4)混合同余法<br>例子：<br>判断n是否为素数。<br>相关定理：wilson定理、费马定理、二次探测定理。</p>
+</blockquote>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><blockquote>
+<p>求解最优解。<br>同分治法类似，只是动态规划保存了之前求得的所有子问题的解，以避免重复的计算。<br>适用条件：<br>   (1)最优化原理（最优子结构）<br>   (2)无后向性<br>   (3)子问题的重叠性<br>动态规划的根本目的是：解决冗余，利用空间复杂度减少时间复杂度。<br>例子：师姐大赛胜率问题</p>
 </blockquote>
 
     
@@ -292,10 +307,10 @@ git reset –hard  ID
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/04/27/Spring注解/">
+    <a class="show pull-left" href="/2017/05/17/github回滚/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/17/基本算法设计策略/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -420,7 +435,7 @@ git reset –hard  ID
   <script>
     var disqus_shortname = 'zyx-sea';
     
-    var disqus_url = 'http://zyx-sea.github.io/2017/05/17/github回滚/';
+    var disqus_url = 'http://zyx-sea.github.io/2017/05/17/基本算法设计策略/';
     
     (function(){
       var dsq = document.createElement('script');
