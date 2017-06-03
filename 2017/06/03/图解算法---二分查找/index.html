@@ -7,33 +7,50 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python爬取网页信息(1) | Zyx-sea Blog</title>
+  <title>图解算法---二分查找 | Zyx-sea Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="爬取信息," />
+    <meta name="keywords" content="算法," />
   
 
-  <meta name="description" content="Http
-http1.1时代,request信息有get、post、head三种方式现在，新添了put、options、connect、trace、deleteget、post最常用
+  <meta name="description" content="《图解算法》—二分法查找概念
+二分查找是一种算法，其输入是一个有序的元素列表(必须是有序的)，如果查找到的元素包含在列表中，二分查找返回其位置；否则返回null.
 
-简单爬取景点信息相关代码from bs4 import BeautifulSoupimport requestsurl = &apos;https://www.tripadvisor.cn/Attractions-g6076">
+原理
+
+一般而言，对于包含n个元素的列表，用二分查找最多需要$log_2^n步，而简单查找最多需要n步
+
+例子：
+函数binary_search接受一个ࣿ有序数组和一个元素。如果指定元素包含在数组中，这个函数将返回其位置，否则返回no">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python爬取网页信息(1)">
-<meta property="og:url" content="http://zyx-sea.github.io/2017/04/17/Python爬取网页信息(1)/index.html">
+<meta property="og:title" content="图解算法---二分查找">
+<meta property="og:url" content="http://zyx-sea.github.io/2017/06/03/图解算法---二分查找/index.html">
 <meta property="og:site_name" content="Zyx-sea Blog">
-<meta property="og:description" content="Http
-http1.1时代,request信息有get、post、head三种方式现在，新添了put、options、connect、trace、deleteget、post最常用
+<meta property="og:description" content="《图解算法》—二分法查找概念
+二分查找是一种算法，其输入是一个有序的元素列表(必须是有序的)，如果查找到的元素包含在列表中，二分查找返回其位置；否则返回null.
 
-简单爬取景点信息相关代码from bs4 import BeautifulSoupimport requestsurl = &apos;https://www.tripadvisor.cn/Attractions-g6076">
-<meta property="og:updated_time" content="2017-05-31T13:23:55.777Z">
+原理
+
+一般而言，对于包含n个元素的列表，用二分查找最多需要$log_2^n步，而简单查找最多需要n步
+
+例子：
+函数binary_search接受一个ࣿ有序数组和一个元素。如果指定元素包含在数组中，这个函数将返回其位置，否则返回no">
+<meta property="og:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/二分法原理.jpg">
+<meta property="og:updated_time" content="2017-06-03T11:23:45.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python爬取网页信息(1)">
-<meta name="twitter:description" content="Http
-http1.1时代,request信息有get、post、head三种方式现在，新添了put、options、connect、trace、deleteget、post最常用
+<meta name="twitter:title" content="图解算法---二分查找">
+<meta name="twitter:description" content="《图解算法》—二分法查找概念
+二分查找是一种算法，其输入是一个有序的元素列表(必须是有序的)，如果查找到的元素包含在列表中，二分查找返回其位置；否则返回null.
 
-简单爬取景点信息相关代码from bs4 import BeautifulSoupimport requestsurl = &apos;https://www.tripadvisor.cn/Attractions-g6076">
+原理
+
+一般而言，对于包含n个元素的列表，用二分查找最多需要$log_2^n步，而简单查找最多需要n步
+
+例子：
+函数binary_search接受一个ࣿ有序数组和一个元素。如果指定元素包含在数组中，这个函数将返回其位置，否则返回no">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/二分法原理.jpg">
 
   
 
@@ -192,20 +209,20 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Http"><span class="toc-text">Http</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单爬取景点信息"><span class="toc-text">简单爬取景点信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相关代码"><span class="toc-text">相关代码</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#《图解算法》—二分法查找"><span class="toc-text">《图解算法》—二分法查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子："><span class="toc-text">例子：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-Python爬取网页信息(1)" class="article article-type-post" itemprop="blogPost">
+   <article id="post-图解算法---二分查找" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Python爬取网页信息(1)</h1>
+    <h1 class="post-title">图解算法---二分查找</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.04.17</span>
+        <span>2017.06.03</span>
       </span>
 
       
@@ -218,7 +235,7 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/二分查找/">二分查找</a>
   </span>
 
 
@@ -226,7 +243,7 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://zyx-sea.github.io/2017/04/17/Python爬取网页信息(1)/#disqus_thread"></a>
+          <a href="https://zyx-sea.github.io/2017/06/03/图解算法---二分查找/#disqus_thread"></a>
         </span>
       
 
@@ -245,10 +262,17 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
 
   <div class="article-content">
     
-      <h2 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h2><blockquote>
-<p>http1.1时代,request信息有get、post、head三种方式<br>现在，新添了put、options、connect、trace、delete<br>get、post最常用</p>
+      <h1 id="《图解算法》—二分法查找"><a href="#《图解算法》—二分法查找" class="headerlink" title="《图解算法》—二分法查找"></a>《图解算法》—二分法查找</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>二分查找是一种算法，其输入是一个<strong>有序的</strong>元素列表(必须是有序的)，如果查找到的元素包含在列表中，二分查找返回其位置；否则返回null.</p>
 </blockquote>
-<h2 id="简单爬取景点信息"><a href="#简单爬取景点信息" class="headerlink" title="简单爬取景点信息"></a>简单爬取景点信息</h2><h3 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"></div><div class="line">url = <span class="string">'https://www.tripadvisor.cn/Attractions-g60763-Activities-New_York_City_New_York.html#ATTRACTION_SORT_WRAPPER'</span></div><div class="line">web_data = requests.get(url)</div><div class="line">soup = BeautifulSoup(web_data.text,<span class="string">'lxml'</span>)</div><div class="line"><span class="comment"># print(soup)   #整个网页结构</span></div><div class="line">titles = soup.select(<span class="string">'#ATTR_ENTRY_ &gt; div.attraction_clarity_cell &gt; div &gt; div &gt; div.listing_info &gt; div.listing_title &gt; a[target="_blank"]'</span>)</div><div class="line"><span class="comment"># print(titles) #相关一类信息</span></div><div class="line">imgs= soup.select(<span class="string">'img[width="180"]'</span>)</div><div class="line"><span class="comment">#print(titles,imgs) #一类信息的图片</span></div><div class="line">categorys = soup.select(<span class="string">'#ATTR_ENTRY_ &gt; div.attraction_clarity_cell &gt; div &gt; div &gt; div.listing_info &gt; div.tag_line &gt; div &gt; a'</span>)</div><div class="line"><span class="comment">#print(categorys)  #分类别</span></div><div class="line"></div><div class="line"><span class="comment">#装入字典中</span></div><div class="line"><span class="keyword">for</span> title,img,cate <span class="keyword">in</span> zip(titles,imgs,categorys):</div><div class="line">    data = &#123;</div><div class="line">        <span class="string">'title'</span>:title.get_text(),</div><div class="line">        <span class="string">'img'</span>:img.get(<span class="string">'src'</span>),</div><div class="line">        <span class="string">'cate'</span>:list(cate.stripped_strings),</div><div class="line">    &#125;</div><div class="line">    print(data)</div></pre></td></tr></table></figure>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/二分法原理.jpg" alt="二分法原理"></p>
+<blockquote>
+<p><strong>一般而言，对于包含n个元素的列表，用二分查找最多需要$log_2^n步，而简单查找最多需要n步</strong></p>
+</blockquote>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><blockquote>
+<p>函数binary_search接受一个ࣿ有序数组和一个元素。如果指定元素包含在数组中，这个<br>函数将返回其位置，否则返回none。</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list, item)</span>:</span></div><div class="line">    low = <span class="number">0</span></div><div class="line">    high = len(list) - <span class="number">1</span>   </div><div class="line">    <span class="keyword">while</span> low &lt;= high:</div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        guess = list[mid]</div><div class="line">        <span class="keyword">if</span> guess == item:</div><div class="line">            <span class="keyword">return</span> mid</div><div class="line">        <span class="keyword">if</span> guess &gt; item:</div><div class="line">            high = mid - <span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            low = mid + <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">my_list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>]</div><div class="line">print(binary_search(my_list, <span class="number">3</span>)) <span class="comment">#  找到，地址为1,索引从0开始</span></div><div class="line">print(binary_search(my_list),<span class="number">-1</span>) <span class="comment"># 没找到，返回none</span></div></pre></td></tr></table></figure>
     
   </div>
 </article>
@@ -278,10 +302,10 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/04/10/hexo部署远程出错/">
+    <a class="show pull-left" href="/2017/05/31/数据结构(1)/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/04/26/数据清洗/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -406,7 +430,7 @@ http1.1时代,request信息有get、post、head三种方式现在，新添了put
   <script>
     var disqus_shortname = 'zyx-sea';
     
-    var disqus_url = 'http://zyx-sea.github.io/2017/04/17/Python爬取网页信息(1)/';
+    var disqus_url = 'http://zyx-sea.github.io/2017/06/03/图解算法---二分查找/';
     
     (function(){
       var dsq = document.createElement('script');
