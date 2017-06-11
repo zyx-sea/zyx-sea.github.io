@@ -7,68 +7,90 @@
 <head>
   <meta charset="utf-8">
   
-  <title>数据结构(2) | Zyx-sea Blog</title>
+  <title>数据结构(3) - 算法 | Zyx-sea Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="数据结构," />
+    <meta name="keywords" content="算法," />
   
 
-  <meta name="description" content="数据结构(2)到底什么是数据结构？
-数据对象在计算机中的组织方式
-   逻辑结构   ​物理存储结构
+  <meta name="description" content="数据结构(3) - 算法到底什么是算法？
+一个有限制令集
 
-数据对象必定与一系列加在其上的操作相关联
+接受一些输入（有时不需要输入）
 
-完成这些操作所用的方法就是算法
+产出输出
+
+一定在有限步骤之后终止
+
+每一条指令必须
+   有充分明确的目标，不可以有歧义
+​    计算机能处理的范围之内
+​    描述应不依赖于任何一种计算机语言以及具体的实现
 
 
-抽象数据类型（Abstract Data Type）
-数据类型
-​    数据对象集​    数据集合相关联的操作集
+什么是好的算法？
+空间复杂度S(n)——占用存储单元的长度
 
-抽象：描述数据类型的方法不依赖于具体实现
-​    与存放数据的机器无关​    与数据存储的物">
+空间复杂度T(n)——耗费时间的长度
+
+
+在分析一般算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构(2)">
-<meta property="og:url" content="http://zyx-sea.github.io/2017/06/05/数据结构(2)/index.html">
+<meta property="og:title" content="数据结构(3) - 算法">
+<meta property="og:url" content="http://zyx-sea.github.io/2017/06/11/数据结构(3) - 算法/index.html">
 <meta property="og:site_name" content="Zyx-sea Blog">
-<meta property="og:description" content="数据结构(2)到底什么是数据结构？
-数据对象在计算机中的组织方式
-   逻辑结构   ​物理存储结构
+<meta property="og:description" content="数据结构(3) - 算法到底什么是算法？
+一个有限制令集
 
-数据对象必定与一系列加在其上的操作相关联
+接受一些输入（有时不需要输入）
 
-完成这些操作所用的方法就是算法
+产出输出
+
+一定在有限步骤之后终止
+
+每一条指令必须
+   有充分明确的目标，不可以有歧义
+​    计算机能处理的范围之内
+​    描述应不依赖于任何一种计算机语言以及具体的实现
 
 
-抽象数据类型（Abstract Data Type）
-数据类型
-​    数据对象集​    数据集合相关联的操作集
+什么是好的算法？
+空间复杂度S(n)——占用存储单元的长度
 
-抽象：描述数据类型的方法不依赖于具体实现
-​    与存放数据的机器无关​    与数据存储的物">
-<meta property="og:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/矩阵ADT.jpg">
-<meta property="og:updated_time" content="2017-06-05T09:13:37.109Z">
+空间复杂度T(n)——耗费时间的长度
+
+
+在分析一般算法">
+<meta property="og:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/函数增长.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/复杂度分析.jpg">
+<meta property="og:updated_time" content="2017-06-11T09:11:34.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构(2)">
-<meta name="twitter:description" content="数据结构(2)到底什么是数据结构？
-数据对象在计算机中的组织方式
-   逻辑结构   ​物理存储结构
+<meta name="twitter:title" content="数据结构(3) - 算法">
+<meta name="twitter:description" content="数据结构(3) - 算法到底什么是算法？
+一个有限制令集
 
-数据对象必定与一系列加在其上的操作相关联
+接受一些输入（有时不需要输入）
 
-完成这些操作所用的方法就是算法
+产出输出
+
+一定在有限步骤之后终止
+
+每一条指令必须
+   有充分明确的目标，不可以有歧义
+​    计算机能处理的范围之内
+​    描述应不依赖于任何一种计算机语言以及具体的实现
 
 
-抽象数据类型（Abstract Data Type）
-数据类型
-​    数据对象集​    数据集合相关联的操作集
+什么是好的算法？
+空间复杂度S(n)——占用存储单元的长度
 
-抽象：描述数据类型的方法不依赖于具体实现
-​    与存放数据的机器无关​    与数据存储的物">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/矩阵ADT.jpg">
+空间复杂度T(n)——耗费时间的长度
+
+
+在分析一般算法">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/函数增长.jpg">
 
   
 
@@ -227,20 +249,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构-2"><span class="toc-text">数据结构(2)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#到底什么是数据结构？"><span class="toc-text">到底什么是数据结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象数据类型（Abstract-Data-Type）"><span class="toc-text">抽象数据类型（Abstract Data Type）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵的抽象类型定义"><span class="toc-text">矩阵的抽象类型定义</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构-3-算法"><span class="toc-text">数据结构(3) - 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#到底什么是算法？"><span class="toc-text">到底什么是算法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是好的算法？"><span class="toc-text">什么是好的算法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同算法函数的增长速率的比较"><span class="toc-text">不同算法函数的增长速率的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析"><span class="toc-text">复杂度分析</span></a></li></ol></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-数据结构(2)" class="article article-type-post" itemprop="blogPost">
+   <article id="post-数据结构(3) - 算法" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">数据结构(2)</h1>
+    <h1 class="post-title">数据结构(3) - 算法</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.06.05</span>
+        <span>2017.06.11</span>
       </span>
 
       
@@ -261,7 +283,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://zyx-sea.github.io/2017/06/05/数据结构(2)/#disqus_thread"></a>
+          <a href="https://zyx-sea.github.io/2017/06/11/数据结构(3) - 算法/#disqus_thread"></a>
         </span>
       
 
@@ -280,27 +302,36 @@
 
   <div class="article-content">
     
-      <h1 id="数据结构-2"><a href="#数据结构-2" class="headerlink" title="数据结构(2)"></a>数据结构(2)</h1><h2 id="到底什么是数据结构？"><a href="#到底什么是数据结构？" class="headerlink" title="到底什么是数据结构？"></a>到底什么是数据结构？</h2><ul>
-<li><p><strong>数据对象</strong>在计算机中的组织方式</p>
-<p>   逻辑结构<br>   ​物理存储结构</p>
+      <h1 id="数据结构-3-算法"><a href="#数据结构-3-算法" class="headerlink" title="数据结构(3) - 算法"></a>数据结构(3) - 算法</h1><h2 id="到底什么是算法？"><a href="#到底什么是算法？" class="headerlink" title="到底什么是算法？"></a>到底什么是算法？</h2><ul>
+<li><p>一个有限制令集</p>
 </li>
-<li><p>数据对象必定与一系列加在其上的<strong>操作</strong>相关联</p>
+<li><p>接受一些输入（有时不需要输入）</p>
 </li>
-<li><p>完成这些操作所用的方法就是<strong>算法</strong></p>
+<li><p>产出输出</p>
 </li>
-</ul>
-<h2 id="抽象数据类型（Abstract-Data-Type）"><a href="#抽象数据类型（Abstract-Data-Type）" class="headerlink" title="抽象数据类型（Abstract Data Type）"></a>抽象数据类型（Abstract Data Type）</h2><ul>
-<li><p>数据类型</p>
-<p>​    数据对象集<br>​    数据集合相关联的操作集</p>
+<li><p>一定在有限步骤之后终止</p>
 </li>
-<li><p>抽象：描述数据类型的方法不依赖于具体实现</p>
-<p>​    与存放数据的机器无关<br>​    与数据存储的物理结构无关<br>​    与实现操作的算法和编程语言均无关</p>
+<li><p>每一条指令必须</p>
+<p>   有充分明确的目标，不可以有歧义</p>
+<p>​    计算机能处理的范围之内</p>
+<p>​    描述应不依赖于任何一种计算机语言以及具体的实现</p>
 </li>
 </ul>
-<blockquote>
-<p>只描述数据对象集和相关操作集<strong>“是什么”</strong>，并<strong>不涉及“如何做到”</strong>的问题（类似java接口，个人理解）</p>
-</blockquote>
-<h2 id="矩阵的抽象类型定义"><a href="#矩阵的抽象类型定义" class="headerlink" title="矩阵的抽象类型定义"></a>矩阵的抽象类型定义</h2><p><img src="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/矩阵ADT.jpg" alt="矩阵ADT"></p>
+<h2 id="什么是好的算法？"><a href="#什么是好的算法？" class="headerlink" title="什么是好的算法？"></a>什么是好的算法？</h2><ul>
+<li><p>空间复杂度S(n)——占用存储单元的长度</p>
+</li>
+<li><p>空间复杂度T(n)——耗费时间的长度</p>
+</li>
+</ul>
+<p>在分析一般算法的效率时，经常关心的两种复杂度：</p>
+<ul>
+<li><p>最坏情况复杂度$T_wors(n)$</p>
+</li>
+<li><p>平均复杂度$T_avg(n)$</p>
+</li>
+</ul>
+<h2 id="不同算法函数的增长速率的比较"><a href="#不同算法函数的增长速率的比较" class="headerlink" title="不同算法函数的增长速率的比较"></a>不同算法函数的增长速率的比较</h2><p><img src="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/函数增长.jpg" alt="函数增长"></p>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><p><img src="https://raw.githubusercontent.com/zyx-sea/zyx-sea.github.io/master/images/复杂度分析.jpg" alt="复杂度分析"></p>
 
     
   </div>
@@ -331,10 +362,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/06/03/图解算法---二分查找/">
+    <a class="show pull-left" href="/2017/06/05/数据结构(2)/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/06/11/数据结构(3) - 算法/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -459,7 +490,7 @@
   <script>
     var disqus_shortname = 'zyx-sea';
     
-    var disqus_url = 'http://zyx-sea.github.io/2017/06/05/数据结构(2)/';
+    var disqus_url = 'http://zyx-sea.github.io/2017/06/11/数据结构(3) - 算法/';
     
     (function(){
       var dsq = document.createElement('script');
