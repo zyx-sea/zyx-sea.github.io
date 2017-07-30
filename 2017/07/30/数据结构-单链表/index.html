@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据结构-单链表 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="数据结构  C语言," />
+  
+
+  <meta name="description" content="单链表的定义和特点
+定义 :链表是线性表的链接存储表示。元素之间的逻辑顺序是通过各结点中的链接指针来指示的。
+分类：单链表、循环链表、双向链表、静态链表  
+特点： 每个数据元素存放在结点(Node)中
+​        结点可以连续存储，也可以不连续存储
+​        结点的逻辑顺序与物理顺序可以不一致
+​        表可扩充
+
+单链表的实现–代码#include &amp;lt;stdio.h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-单链表">
+<meta property="og:url" content="http://zyx-sea.github.io/2017/07/30/数据结构-单链表/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="单链表的定义和特点
+定义 :链表是线性表的链接存储表示。元素之间的逻辑顺序是通过各结点中的链接指针来指示的。
+分类：单链表、循环链表、双向链表、静态链表  
+特点： 每个数据元素存放在结点(Node)中
+​        结点可以连续存储，也可以不连续存储
+​        结点的逻辑顺序与物理顺序可以不一致
+​        表可扩充
+
+单链表的实现–代码#include &amp;lt;stdio.h">
+<meta property="og:updated_time" content="2017-07-30T03:20:42.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构-单链表">
+<meta name="twitter:description" content="单链表的定义和特点
+定义 :链表是线性表的链接存储表示。元素之间的逻辑顺序是通过各结点中的链接指针来指示的。
+分类：单链表、循环链表、双向链表、静态链表  
+特点： 每个数据元素存放在结点(Node)中
+​        结点可以连续存储，也可以不连续存储
+​        结点的逻辑顺序与物理顺序可以不一致
+​        表可扩充
+
+单链表的实现–代码#include &amp;lt;stdio.h">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/404/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单链表的定义和特点"><span class="toc-text">单链表的定义和特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单链表的实现–代码"><span class="toc-text">单链表的实现–代码</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-数据结构-单链表" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据结构-单链表</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.07.30</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2017/07/30/数据结构-单链表/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="单链表的定义和特点"><a href="#单链表的定义和特点" class="headerlink" title="单链表的定义和特点"></a>单链表的定义和特点</h2><blockquote>
+<p>定义 :链表是线性表的链接存储表示。元素之间的逻辑顺序是通过各结点中的链接指针来指示的。</p>
+<p>分类：单链表、循环链表、双向链表、静态链表  </p>
+<p>特点： 每个数据元素存放在结点(Node)中</p>
+<p>​        结点可以连续存储，也可以不连续存储</p>
+<p>​        结点的逻辑顺序与物理顺序可以不一致</p>
+<p>​        表可扩充</p>
+</blockquote>
+<h2 id="单链表的实现–代码"><a href="#单链表的实现–代码" class="headerlink" title="单链表的实现–代码"></a>单链表的实现–代码</h2><figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">//设计节点结构</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> Node</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> data;</div><div class="line">	<span class="keyword">struct</span> Node *pNext;</div><div class="line">&#125;NODE, *pNODE;</div><div class="line"></div><div class="line"><span class="comment">//创建单向链表</span></div><div class="line"><span class="function">pNODE <span class="title">create_Linklist</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//打印单向链表</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_Linklistshow_Linklist</span><span class="params">(pNODE pHead)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//判断单向链表是否为空</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEmpty_Linklist</span><span class="params">(pNODE pHead)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//计算单向链表的长度</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLength_Linklist</span><span class="params">(pNODE pHead)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//向单向链表插入节点</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert_Linklist</span><span class="params">(pNODE pHead, <span class="keyword">int</span> pos, <span class="keyword">int</span> data)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//从单向链表删除节点</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">delete_Linklist</span><span class="params">(pNODE pHead, <span class="keyword">int</span> pos)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//删除整个链表，释放内存</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">free_Linklist</span><span class="params">(pNODE *ppHead)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//创建单向链表</span></div><div class="line"><span class="function">pNODE <span class="title">create_Linklist</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i, length, data;</div><div class="line">	pNODE p_new = <span class="literal">NULL</span>, pTail = <span class="literal">NULL</span>;</div><div class="line">	<span class="comment">//创建头节点，头结点是第0个节点，后面的节点从1开始计数</span></div><div class="line">	pNODE pHead = (pNODE)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="literal">NULL</span> == pHead)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"内存分配失败！\n"</span>);</div><div class="line">		<span class="built_in">exit</span>(EXIT_FAILURE);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	pHead-&gt;data = <span class="number">0</span>;</div><div class="line">	pHead-&gt;pNext = <span class="literal">NULL</span>;</div><div class="line">	pTail = pHead;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入要创建链表的长度："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;length);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;length; i++)</div><div class="line">	&#123;</div><div class="line">		p_new = (pNODE)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));</div><div class="line">		<span class="keyword">if</span> (<span class="literal">NULL</span> == p_new)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"内存分配失败！\n"</span>);</div><div class="line">			<span class="built_in">exit</span>(EXIT_FAILURE);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入第%d个节点的值："</span>, i+<span class="number">1</span>);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;data);</div><div class="line"></div><div class="line">		p_new-&gt;data = data;</div><div class="line">		p_new-&gt;pNext = <span class="literal">NULL</span>;</div><div class="line">		pTail-&gt;pNext = p_new;</div><div class="line">		pTail = p_new;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> pHead;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//打印单向链表，不打印头结点的值。</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_Linklist</span><span class="params">(pNODE pHead)</span></span></div><div class="line">&#123;</div><div class="line">	pNODE pt = pHead-&gt;pNext;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"打印链表："</span>);</div><div class="line">	<span class="keyword">while</span> (pt)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, pt-&gt;data);</div><div class="line">		pt = pt-&gt;pNext;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//判断链表是否为空</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEmpty_Linklist</span><span class="params">(pNODE pHead)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pHead-&gt;pNext == <span class="literal">NULL</span>)</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//计算单向链表长度</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLength_Linklist</span><span class="params">(pNODE pHead)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</div><div class="line">    pNODE pt = pHead-&gt;pNext;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (pt)</div><div class="line">    &#123;</div><div class="line">        length++;</div><div class="line">        pt = pt-&gt;pNext;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//向单向链表插入一个节点,位置从1开始，到链表长度加1结束。</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert_Linklist</span><span class="params">(pNODE pHead, <span class="keyword">int</span> pos, <span class="keyword">int</span> data)</span></span></div><div class="line">&#123;</div><div class="line">	pNODE pt = <span class="literal">NULL</span>, p_new = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos &gt; <span class="number">0</span> &amp;&amp; pos &lt; getLength_Linklist(pHead) + <span class="number">2</span>)</div><div class="line">	&#123;</div><div class="line">		p_new = (pNODE)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));</div><div class="line">		<span class="keyword">if</span> (<span class="literal">NULL</span> == p_new)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"内存分配失败！\n"</span>);</div><div class="line">			<span class="built_in">exit</span>(EXIT_FAILURE);</div><div class="line">		&#125;</div><div class="line">		p_new-&gt;data = data;</div><div class="line"></div><div class="line">		<span class="keyword">while</span> (<span class="number">1</span>)</div><div class="line">		&#123;</div><div class="line">			pos--;</div><div class="line">			<span class="keyword">if</span> (<span class="number">0</span> == pos)</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			pHead  = pHead-&gt;pNext;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		pt = pHead-&gt;pNext;</div><div class="line">		pHead-&gt;pNext = p_new;</div><div class="line">		p_new-&gt;pNext = pt;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//从单向链表中删除一个节点，位置从1开始，到链表长度结束。</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">delete_Linklist</span><span class="params">(pNODE pHead, <span class="keyword">int</span> pos)</span></span></div><div class="line">&#123;</div><div class="line">	pNODE pt = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (pos &gt; <span class="number">0</span> &amp;&amp; pos &lt; getLength_Linklist(pHead) + <span class="number">1</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">while</span> (<span class="number">1</span>)</div><div class="line">		&#123;</div><div class="line">			pos--;</div><div class="line">			<span class="keyword">if</span> (<span class="number">0</span> == pos)</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			pHead = pHead-&gt;pNext;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		pt = pHead-&gt;pNext-&gt;pNext;</div><div class="line">		<span class="built_in">free</span>(pHead-&gt;pNext);</div><div class="line">		pHead-&gt;pNext = pt;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//删除整个单向链表，释放内存。</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">free_Linklist</span><span class="params">(pNODE *ppHead)</span></span></div><div class="line">&#123;</div><div class="line">    pNODE pt = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">while</span> (*ppHead != <span class="literal">NULL</span>)</div><div class="line">    &#123;</div><div class="line">        pt = (*ppHead)-&gt;pNext;</div><div class="line">        <span class="built_in">free</span>(*ppHead);</div><div class="line">        *ppHead = pt;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>, length = <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> position = <span class="number">0</span>, value = <span class="number">0</span>;</div><div class="line">	pNODE head = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">	head = create_Linklist();</div><div class="line"></div><div class="line">	flag = isEmpty_Linklist(head);</div><div class="line">	<span class="keyword">if</span> (flag)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"单向链表为空！\n"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">		length = getLength_Linklist(head);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"单向链表的长度为：%d\n"</span>, length);</div><div class="line">		show_Linklist(head);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入要插入节点的位置和元素值(两个数用空格隔开)："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;position, &amp;value);</div><div class="line">	flag = insert_Linklist(head, position, value);</div><div class="line">	<span class="keyword">if</span> (flag)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"插入节点成功！\n"</span>);</div><div class="line">		show_Linklist(head);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"插入节点失败！\n"</span>);</div><div class="line"></div><div class="line">	flag = isEmpty_Linklist(head);</div><div class="line">	<span class="keyword">if</span> (flag)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"单向链表为空，不能进行删除操作！\n"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入要删除节点的位置："</span>);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;position);</div><div class="line">		flag = delete_Linklist(head, position);</div><div class="line">		<span class="keyword">if</span> (flag)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"删除节点成功！\n"</span>);</div><div class="line">			show_Linklist(head);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="built_in">printf</span>(<span class="string">"删除节点失败！\n"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	free_Linklist(&amp;head);</div><div class="line">	<span class="keyword">if</span> (<span class="literal">NULL</span> == head)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"已成功删除单向链表，释放内存完成！\n"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"删除单向链表失败，释放内存未完成！\n"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/07/30/数据结构-顺序表/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/404/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2017/07/30/数据结构-单链表/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
