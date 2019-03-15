@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++程序设计 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="C++  面向对象," />
+  
+
+  <meta name="description" content="基本语法#include &amp;lt;iostream&amp;gt;using namespace std; // main() 是程序开始执行的地方 int main()&amp;#123;   cout &amp;lt;&amp;lt; &quot;Hello World&quot;; // 输出 Hello World   return 0;&amp;#125;
+
+
+C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++程序设计">
+<meta property="og:url" content="http://zyx-sea.github.io/2019/03/15/C++程序设计笔记一/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="基本语法#include &amp;lt;iostream&amp;gt;using namespace std; // main() 是程序开始执行的地方 int main()&amp;#123;   cout &amp;lt;&amp;lt; &quot;Hello World&quot;; // 输出 Hello World   return 0;&amp;#125;
+
+
+C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中">
+<meta property="og:updated_time" content="2019-03-15T05:31:44.955Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++程序设计">
+<meta name="twitter:description" content="基本语法#include &amp;lt;iostream&amp;gt;using namespace std; // main() 是程序开始执行的地方 int main()&amp;#123;   cout &amp;lt;&amp;lt; &quot;Hello World&quot;; // 输出 Hello World   return 0;&amp;#125;
+
+
+C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/404/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标识符"><span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举类型"><span class="toc-text">枚举类型</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-C++程序设计笔记一" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">C++程序设计</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.03.15</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2019/03/15/C++程序设计笔记一/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"> </div><div class="line"><span class="comment">// main() 是程序开始执行的地方</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World"</span>; <span class="comment">// 输出 Hello World</span></div><div class="line">   <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中，包含了头文件 iostream。</li>
+<li>下一行 <strong>using namespace   std;</strong> 告诉编译器使用 std 命名空间。命名空间是 C++ 中一个相对新的概念。</li>
+<li>下一行 <strong>return 0;</strong> 终止 main( )函数，并向调用进程返回值 0。</li>
+</ul>
+</blockquote>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><blockquote>
+<p>C++ 标识符是用来标识<strong><em>变量、函数、类、模块，或任何其他用户自定义项目</em></strong>的名称。一个标识符以字母 <strong>A-Z 或 a-z 或下划线 _</strong> 开始，后跟零个或多个字母 、下划线和数字（0-9）。<br>C++ 标识符内不允许出现标点字符，比如 @、&amp; 和 %。C++ 是区分大小写的编程语言。因此，在 C++ 中，<strong>Manpower</strong> 和 <strong>manpower</strong> 是两个不同的标识符。</p>
+</blockquote>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="comment">/* 这是注释 */</span></div><div class="line"> </div><div class="line"><span class="comment">/* C++ 注释也可以</span></div><div class="line"> * 跨行</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>###七种基本类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">布尔型</td>
+<td style="text-align:center">bool</td>
+</tr>
+<tr>
+<td style="text-align:center">字符型</td>
+<td style="text-align:center">char</td>
+</tr>
+<tr>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">int</td>
+</tr>
+<tr>
+<td style="text-align:center">浮点型</td>
+<td style="text-align:center">float</td>
+</tr>
+<tr>
+<td style="text-align:center">双浮点型</td>
+<td style="text-align:center">double</td>
+</tr>
+<tr>
+<td style="text-align:center">无类型</td>
+<td style="text-align:center">void</td>
+</tr>
+<tr>
+<td style="text-align:center">宽字符型</td>
+<td style="text-align:center">wchar_t</td>
+</tr>
+</tbody>
+</table>
+<p>###typedef 声明</p>
+<blockquote>
+<p>为一个已有的类型取一个新的名字，如：typedef int feet;//feet是int的另一个名称</p>
+</blockquote>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><blockquote>
+<p>如果一个变量只有几种可能的值，可以定义为枚举(enumeration)类型。所谓”枚举”是指将变量的值一一列举出来，变量的值只能在列举出来的值的范围内。<br>形式为:<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> 枚举名&#123; </div><div class="line">     标识符[=整型常数], </div><div class="line">     标识符[=整型常数], </div><div class="line">... </div><div class="line">    标识符[=整型常数]</div><div class="line">&#125; 枚举变量;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>##变量</p>
+<p>###变量声明</p>
+<blockquote>
+<p>变量声明向编译器保证变量以给定的类型和名称存在，这样编译器在不需要知道变量完整细节的情况下也能继续进一步的编译。变量声明只在编译时有它的意义，在程序连接时编译器需要实际的变量声明。<br><strong><em>当您使用多个文件且只在其中一个文件中定义变量时</em></strong>（定义变量的文件在程序连接时是可用的），变量声明就显得非常有用。<br>实例：<br>// 变量声明<br>extern int a, b;<br>extern float f;</p>
+</blockquote>
+<p>###左值（Lvalues）和右值（Rvalues）</p>
+<blockquote>
+<p>左值（lvalue）：指向内存位置的<strong><em>表达式被称为左值（lvalue）表达式</em></strong>。左值可以出现在赋值号的左边或右边。<br>右值（rvalue）：术语右值（rvalue）指的是存储在内存中某些地址的<strong><em>数值</em></strong>。右值是不能对其进行赋值的表达式，也就是说，右值可以出现在赋值号的右边，但不能出现在赋值号的左边。<br>如：<br>变量是左值，因此可以出现在赋值号的左边。数值型的字面值是右值，因此不能被赋值，不能出现在赋值号的左边。</p>
+</blockquote>
+<p>##变量作用域</p>
+<blockquote>
+<p>作用域是程序的一个区域，一般来说有三个地方可以定义变量：</p>
+<ul>
+<li>在函数或一个代码块内部声明的变量，称为局部变量。</li>
+<li>在函数参数的定义中声明的变量，称为形式参数。</li>
+<li>在所有函数外部声明的变量，称为全局变量。</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">// 全局变量声明</span></div><div class="line"><span class="keyword">int</span> g; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">// 局部变量声明</span></div><div class="line">  <span class="keyword">int</span> a, b;</div><div class="line">  <span class="comment">// 实际初始化</span></div><div class="line">  a = <span class="number">10</span>;</div><div class="line">  b = <span class="number">20</span>;</div><div class="line">  g = a + b;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; g;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：char类型的变量，初始默认变量值为‘\0’，打印结果为空，无任何显示。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/02/13/上传注意/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/404/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2019/03/15/C++程序设计笔记一/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
