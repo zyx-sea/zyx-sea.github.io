@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据分析の因子分析 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="因子分析、探索式分析," />
+  
+
+  <meta name="description" content="背景
+系统聚类分析可以对变量进行分类，但是难以判断变量分类结果的合理性。另外，如果要衡量每个变量对类别的贡献，也难以通过聚类分析来实现。这个时候就要采用因子分析来实现了。因子分析就是找出隐藏在变量背后具有共性的因子。。
+
+##因子分析
+
+因子分析是通过研究变量间的相关系数矩阵，把这些变量间错综复杂的关系归结成少数几个综合因子，并据此对变量进行分类的一种统计分析方法。由于归结出的因子个数少于原始变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析の因子分析">
+<meta property="og:url" content="http://zyx-sea.github.io/2019/03/26/数据分析の因子分析/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="背景
+系统聚类分析可以对变量进行分类，但是难以判断变量分类结果的合理性。另外，如果要衡量每个变量对类别的贡献，也难以通过聚类分析来实现。这个时候就要采用因子分析来实现了。因子分析就是找出隐藏在变量背后具有共性的因子。。
+
+##因子分析
+
+因子分析是通过研究变量间的相关系数矩阵，把这些变量间错综复杂的关系归结成少数几个综合因子，并据此对变量进行分类的一种统计分析方法。由于归结出的因子个数少于原始变量">
+<meta property="og:updated_time" content="2019-03-26T15:35:05.565Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析の因子分析">
+<meta name="twitter:description" content="背景
+系统聚类分析可以对变量进行分类，但是难以判断变量分类结果的合理性。另外，如果要衡量每个变量对类别的贡献，也难以通过聚类分析来实现。这个时候就要采用因子分析来实现了。因子分析就是找出隐藏在变量背后具有共性的因子。。
+
+##因子分析
+
+因子分析是通过研究变量间的相关系数矩阵，把这些变量间错综复杂的关系归结成少数几个综合因子，并据此对变量进行分类的一种统计分析方法。由于归结出的因子个数少于原始变量">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/404/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-数据分析の因子分析" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据分析の因子分析</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.03.26</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/数据分析/">数据分析</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2019/03/26/数据分析の因子分析/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>系统聚类分析可以对变量进行分类，但是难以判断变量分类结果的合理性。另外，如果要衡量每个变量对类别的贡献，也难以通过聚类分析来实现。这个时候就要采用因子分析来实现了。<br>因子分析就是找出隐藏在变量背后具有共性的因子。。</p>
+</blockquote>
+<p>##因子分析</p>
+<blockquote>
+<p>因子分析是通过研究变量间的相关系数矩阵，把这些变量间错综复杂的关系归结成少数几个综合因子，并据此对变量进行分类的一种统计分析方法。由于归结出的因子个数少于原始变量的个数，但是它们又包含原始变量的信息，所以，这一分析过程也称为降维。</p>
+<p>目的：<br>（1）探索结构：在变量之间存在高度相关性的时候我们希望用较少的因子来概括其信息；<br>（2）简化数据：把原始变量转化为因子得分后，使用因子得分进行其他分析，比如聚类分析、回归分析等；<br>（3）综合评价：通过每个因子得分计算出综合得分，对分析对象进行综合评价。</p>
+<p><strong>因子分析就是将原始变量转变为新的因子，这些因子之间的相关性较低，而因子内部的变量相关程度较高。</strong></p>
+<p>相关概念：</p>
+<p>（1）因子载荷<br>因子载荷就是每个原始变量和每个因子之间的相关系数，它反映了变量对因子的重要性。</p>
+<p>（2）变量共同度<br>变量共同度就是每个变量所包含的信息能够被因子所解释的程度，其取值范围介于0和1之间，取值越大，说明该变量能被因子解释的程度越高。</p>
+<p>（3）因子旋转<br>因子分析的结果需要每个因子都要有实际意义，有时，原始变量和因子之间的相关系数可能无法明显地表达出因子的含义，为了使这些相关系数更加显著，可以对因子载荷矩阵进行旋转，使原始变量和因子之间的关系更为突出，从而对因子的解释更加容易。<br>旋转方法一般采用最大方差法，该方法能够使每个变量尽可能在一个因子上有较高载荷，在其余的因子上载荷较小，从而方便对因子进行解释。</p>
+<p>（4）因子得分<br>因子得分可以用来评价每个个案在每个因子上的分值。</p>
+<p>步骤：<br>（1）判断数据是否适合因子分析；<br>变量要求是连续变量，分类变量不适合直接进行因子分析；建议个案个数是变量个数的5倍以上，这只是一个参考依据，并不是绝对的标准；KMO检验统计量在0.5以下，不适合因子分析，在0.7以上时，数据较适合因子分析，在0.8以上时，说明数据极其适合因子分析。<br>（2）构造因子变量；<br>（3）利用因子旋转方法使得因子更具有实际意义；<br>（4）计算每个个案因子得分；</p>
+<p>确定提取因子个数的标准：（并不懂）<br>（1）初始特征值大于1的因子个数；<br>（2）累积方差贡献率达到一定水平（60%）的因子个数；<br>（3）碎石图中处于较陡峭曲线上所对应的因子个数；<br>（4）依据对研究事物的理解而指定因子个数；</p>
+</blockquote>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/26/数据分析の聚类分析/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/03/26/数据分析の数据处理/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/404/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2019/03/26/数据分析の因子分析/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据挖掘算法及相关应用 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="C++  数据挖掘  算法  定义," />
+  
+
+  <meta name="description" content="定义
+数据挖掘是指从原始的、为加工的海量数据中提取出有用的信息。数据挖掘吸收了统计学、机器学习、模式识别、数据库和数据仓库、信息检索等技术，它还涉及相关领域的专业知识，是一门综合学科。数据挖掘主要包含数据预处理、关联分析、分类、聚类分析、离散点检测等过程。
+
+##聚类分析
+
+聚类分析：研究如何将相似的事物归为一类。聚类：把相似的对象通过静态分类的方法分成不同的类别或更多的子集，同一子集中的所有对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘算法及相关应用">
+<meta property="og:url" content="http://zyx-sea.github.io/2019/03/25/数据挖掘算法及相关应用/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="定义
+数据挖掘是指从原始的、为加工的海量数据中提取出有用的信息。数据挖掘吸收了统计学、机器学习、模式识别、数据库和数据仓库、信息检索等技术，它还涉及相关领域的专业知识，是一门综合学科。数据挖掘主要包含数据预处理、关联分析、分类、聚类分析、离散点检测等过程。
+
+##聚类分析
+
+聚类分析：研究如何将相似的事物归为一类。聚类：把相似的对象通过静态分类的方法分成不同的类别或更多的子集，同一子集中的所有对象">
+<meta property="og:updated_time" content="2019-03-26T15:38:24.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘算法及相关应用">
+<meta name="twitter:description" content="定义
+数据挖掘是指从原始的、为加工的海量数据中提取出有用的信息。数据挖掘吸收了统计学、机器学习、模式识别、数据库和数据仓库、信息检索等技术，它还涉及相关领域的专业知识，是一门综合学科。数据挖掘主要包含数据预处理、关联分析、分类、聚类分析、离散点检测等过程。
+
+##聚类分析
+
+聚类分析：研究如何将相似的事物归为一类。聚类：把相似的对象通过静态分类的方法分成不同的类别或更多的子集，同一子集中的所有对象">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/404/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-数据挖掘算法及相关应用" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据挖掘算法及相关应用</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.03.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/数据挖掘/">数据挖掘</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2019/03/25/数据挖掘算法及相关应用/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>数据挖掘是指从原始的、为加工的海量数据中提取出有用的信息。<br>数据挖掘吸收了统计学、机器学习、模式识别、数据库和数据仓库、信息检索等技术，它还涉及相关领域的专业知识，是一门综合学科。<br>数据挖掘主要包含数据预处理、关联分析、分类、聚类分析、离散点检测等过程。</p>
+</blockquote>
+<p>##聚类分析</p>
+<blockquote>
+<p>聚类分析：研究如何将相似的事物归为一类。<br>聚类：把相似的对象通过静态分类的方法分成不同的类别或更多的子集，同一子集中的所有对象都有相似的一些属性。</p>
+<p>聚类技术分为：硬划分（K-均值）、软划分（模糊C-均值算法）、基于密度的方法（DBSCAN）。</p>
+<p>K-均值是聚类分析算法中最常用、最基本的聚类算法。该算法是把n个对象划分到k个聚类中，使得每个对象都属于离他最近的均值（此即聚类中心）对应的聚类，以之作为聚类的标准。该算法属于硬划分，需要人为指定划分的类数(即k)。<br>优点：简单快速、易于理解、时间复杂度低。缺点：对高纬度数据处理效果差，并且不能识别非球形的簇。</p>
+<p>模糊C-均值算法，是指该算法的聚类（簇）的界限是模糊的，不同于K-均值中的簇是确定的，以质心为中心，确定的簇。也就是说：模糊C-均值中，每个数据对象到每个簇都存在一个隶属度，但是每个数据对象到所有簇的隶属度之和为1。其中，隶属度又叫做隶属权值（用W表示）。</p>
+<p>DBSCAN：一种基于密度的聚类算法，主要用于处理噪声。对象O的密度可以用靠近O的对象数来度量，算法的核心思想是找出所有核心点、边界点、噪声点。去除噪声点，连接核心对象和它的邻域，进而形成稠密区域作为簇，该算法的好处在于可以有效处理数据集中的噪声点。与K-均值比较起来，DBSCAN<strong>不需要输入要划分的聚类个数</strong>，并且可以处理各种形状的簇。<br>其缺点是算法的时间复杂度较高，因此不能处理高维度数据。</p>
+</blockquote>
+<p>此篇文章及随后几篇相关文章出处：简书，黄成甲，<a href="https://www.jianshu.com/p/bd6a6ed29f9f" target="_blank" rel="external">https://www.jianshu.com/p/bd6a6ed29f9f</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/25/统计学笔记/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/03/26/数据分析のRFM分析/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/404/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2019/03/25/数据挖掘算法及相关应用/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

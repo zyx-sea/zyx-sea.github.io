@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据分析の时间序列分析 | Zyx-sea Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="时间序列分析," />
+  
+
+  <meta name="description" content="背景
+顾名思义，时间序列就是按照时间顺利排列的一组数据序列。时间序列分析就是发现这组数据的变动规律并用于预测的统计技术。该技术有以下三个基本特点：
+1.假设事物发展趋势会延伸到未来；
+2.预测所依据的数据具有不规则性；
+3.不考虑事物发展之间的因果关系。
+对时间序列进行分析的最终目的，是要通过分析序列进行合理预测，做到提前掌握其未来发展趋势，以此为业务决策提供依据。
+
+##移动平均法和指数平滑法的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析の时间序列分析">
+<meta property="og:url" content="http://zyx-sea.github.io/2019/03/27/数据分析の时间序列分析/index.html">
+<meta property="og:site_name" content="Zyx-sea Blog">
+<meta property="og:description" content="背景
+顾名思义，时间序列就是按照时间顺利排列的一组数据序列。时间序列分析就是发现这组数据的变动规律并用于预测的统计技术。该技术有以下三个基本特点：
+1.假设事物发展趋势会延伸到未来；
+2.预测所依据的数据具有不规则性；
+3.不考虑事物发展之间的因果关系。
+对时间序列进行分析的最终目的，是要通过分析序列进行合理预测，做到提前掌握其未来发展趋势，以此为业务决策提供依据。
+
+##移动平均法和指数平滑法的">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/953465-2b47fc4471c7e635.png?imageMogr2/auto-orient/">
+<meta property="og:updated_time" content="2019-03-27T15:37:04.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析の时间序列分析">
+<meta name="twitter:description" content="背景
+顾名思义，时间序列就是按照时间顺利排列的一组数据序列。时间序列分析就是发现这组数据的变动规律并用于预测的统计技术。该技术有以下三个基本特点：
+1.假设事物发展趋势会延伸到未来；
+2.预测所依据的数据具有不规则性；
+3.不考虑事物发展之间的因果关系。
+对时间序列进行分析的最终目的，是要通过分析序列进行合理预测，做到提前掌握其未来发展趋势，以此为业务决策提供依据。
+
+##移动平均法和指数平滑法的">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/953465-2b47fc4471c7e635.png?imageMogr2/auto-orient/">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/404/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断时间序列属于加法模型还是乘法模型"><span class="toc-text">如何判断时间序列属于加法模型还是乘法模型</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-数据分析の时间序列分析" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据分析の时间序列分析</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.03.27</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>July</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/时间序列分析/">时间序列分析</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://zyx-sea.github.io/2019/03/27/数据分析の时间序列分析/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>顾名思义，时间序列就是按照时间顺利排列的一组数据序列。时间序列分析就是发现这组数据的变动规律并用于预测的统计技术。该技术有以下三个基本特点：</p>
+<p><strong>1.假设事物发展趋势会延伸到未来；</strong></p>
+<p><strong>2.预测所依据的数据具有不规则性；</strong></p>
+<p><strong>3.不考虑事物发展之间的因果关系。</strong></p>
+<p>对时间序列进行分析的最终目的，是要通过分析序列进行合理预测，做到提前掌握其未来发展趋势，以此为业务决策提供依据。</p>
+</blockquote>
+<p>##移动平均法和指数平滑法的局限</p>
+<blockquote>
+<p>移动平均法是一种简单平滑预测技术，<br>它的基本思想是：根据时间序列资料逐项推移，依次计算包含一定项数的序时平均值，以反映长期趋势。<br>但这种方法<strong>不适合预测具有复杂趋势</strong>的时间序列。<br>指数平滑法是移动平均法的改进方法，通过对历史数据的远近不同赋予不同的权重进行预测。但在实际应用中，指数平滑法的预测值通常会滞后于实际值，尤其是所预测的时间序列存在长期趋势时，这种滞后的情况更加明显。<br>在实际进行时间序列预测时，遇到的数据会比较复杂，所以我们需要用到更专业的预测方法来对数据进行合理预测。通常情况下一个时间序列包含四种因素，它们会通过不同的组合方式影响时间序列的发展变化。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/953465-2b47fc4471c7e635.png?imageMogr2/auto-orient/" alt="img"></p>
+<blockquote>
+<p>时间序列四种因素有两种组合方式。</p>
+<p>1.四种因素相互独立，即时间序列是由四种因素直接叠加而形成的，可用加法模型表示：</p>
+<p>Y=T+S+C+I</p>
+<p>2.四种因素相互影响，即时间序列是综合四种因素而形成的，可用乘法模型表示：</p>
+<p>Y=T×S×C×I，通常遇到的时间序列都是乘法模型。其中，原始时间序列值和长期趋势可用绝对数表示，季节变动、循环变动和不规则变动则用相对数（通常是变动百分比）表示。</p>
+</blockquote>
+<p>##季节分解法</p>
+<blockquote>
+<p>需要将上述四种因素从时间序列中分解出来。原因是：<br> 1.把因素从时间序列中分解出来后，就能克服其他因素的影响，仅考量某一种因素对时间序列的影响；<br> 2.分解这四种因素后，也可以分析他们之间的相互作用，以及它们对时间序列的综合影响；<br> 3.当去掉某些因素后，就可以更好地进行时间序列之间的比较，从而更加客观地反映事物变化发展规律；<br> 4.分解这些因素后的序列可以用于建立回归模型，从而提高预测精度。</p>
+</blockquote>
+<p><strong>通常情况，我们会考虑进行季节因素的分解，也就是将季节变动因素从原时间序列中去除，并生成由剩余的三种因素构成的序列来满足后续分析需求。</strong></p>
+<h2 id="如何判断时间序列属于加法模型还是乘法模型"><a href="#如何判断时间序列属于加法模型还是乘法模型" class="headerlink" title="如何判断时间序列属于加法模型还是乘法模型"></a>如何判断时间序列属于加法模型还是乘法模型</h2><blockquote>
+<p>如果时间序列图的趋势随着时间的推移，序列的<strong><em>季节波动变得越来越大，则建议使用乘法模型；如果序列的季节波动能够基本维持恒定，则建议使用加法模型</em></strong>。</p>
+</blockquote>
+<p>##时间序列预测步骤</p>
+<blockquote>
+<p>时间序列的预测步骤主要分为四步：</p>
+<p>（1）绘制时间序列图观察趋势；</p>
+<p>（2）分析序列平稳性并进行平稳化；</p>
+<p>（3）时间序列建模分析；</p>
+<p>（4）模型评估与预测；</p>
+<p>平稳性是指时间序列的所有统计性质都不会随着时间的推移而发生变化，对于一个平稳的时间序列来说，需要具有以下特征：<br><strong>（1）均数和方差不随时间变化；</strong><br><strong>（2）自相关系数只与时间间隔有关，与所处的时间无关。</strong></p>
+</blockquote>
+<p>目前主流的时间序列预测方法都是针对平稳的时间序列进行分析的，但是实际上，我们遇到的大多数时间序列都不平稳，所以在分析时，需要首先识别序列的平稳性，并且把不平稳的序列转换为平稳序列。一个时间序列只有被平稳化处理过，才能被控制和预测。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持freedom</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/27/数据分析の对应分析/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/404/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'zyx-sea';
+    
+    var disqus_url = 'http://zyx-sea.github.io/2019/03/27/数据分析の时间序列分析/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//zyx-sea.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
